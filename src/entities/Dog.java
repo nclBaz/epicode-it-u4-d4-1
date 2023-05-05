@@ -23,6 +23,12 @@ public class Dog extends Animal {
 		System.out.println("Ciao sono un cane!");
 	}
 
+	@Override
+	public void walk() {
+		System.out.println("Sto camminando");
+	}
+
 	public void walk(String numPassi) {
 	}
+
 }

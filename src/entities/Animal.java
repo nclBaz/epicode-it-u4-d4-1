@@ -1,6 +1,6 @@
 package entities;
 
-public class Animal {
+public abstract class Animal implements Walker {
 	String name;
 	int age;
 
@@ -25,11 +25,12 @@ public class Animal {
 		this.age = age;
 	}
 
-	public void walk() {
-		System.out.println("Sto camminando!");
-	}
 
-	public void sayHello() {
-		System.out.println("Ciao sono un animale!");
+	public abstract void sayHello();
+	// I metodi delle classi astratte non hanno un body
+	// Servono per obbligare chi eredita ad implementarlo
+
+	public void getInfo() {
+		System.out.println("Il mio nome è:" + this.name + ", la mia età è:" + this.age);
 	}
 }
