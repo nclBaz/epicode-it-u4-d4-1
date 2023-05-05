@@ -7,6 +7,7 @@ public class Student {
 	private String lastName;
 	String id;
 	private int age;
+	private StudentType studentType;
 
 	// Attributi statici
 	static String school = "Epicode";
@@ -15,16 +16,22 @@ public class Student {
 	public Student() { // COSTRUTTORE I
 		this.firstName = "Giacomo";
 		this.lastName = "Poretti";
+		this.studentType = StudentType.BACKEND;
 	}
 
 	public Student(String fn) { // COSTRUTTORE II
-		this.firstName = fn;
+		setFirstName(fn);
 		this.lastName = "Cognome Generico";
 	}
 
 	public Student(String fn, String ln) { // COSTRUTTORE III
-		this.firstName = fn;
-		this.lastName = ln;
+		this(fn); // Richiamo il II Costruttore
+		setLastName(ln);
+	}
+
+	public Student(String fn, String ln, int a) { // COSTRUTTORE III
+		this(fn, ln); // Richiamo il III Costruttore
+		setAge(a);
 	}
 
 	// Getters & Setters
@@ -70,7 +77,12 @@ public class Student {
 	}
 
 	// Metodi di istanza
-	private void sayHello() {
+	public void sayHello() {
+		System.out.println("Ciao! Sono " + this.firstName);
+	}
+
+	public void sayHello(String something) {
+
 		System.out.println("Ciao! Sono " + this.firstName);
 	}
 
@@ -94,5 +106,8 @@ public class Student {
 		return this.firstName + " " + this.lastName;
 	}
 
-
+	// Overload
+	public String toString(String s) {
+		return s;
+	}
 }
